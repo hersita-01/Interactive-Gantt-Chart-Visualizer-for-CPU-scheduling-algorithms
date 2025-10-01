@@ -41,13 +41,8 @@ function App() {
     <div className="app-root">
       <div className="container">
         <div className="header">
-<<<<<<< Updated upstream
-          <h1 className="title">OS Scheduling Simulator</h1>
-          <div className="subtitle">Visualize  algorithms and process metrics</div>
-=======
           <h1 className="title">OS Scheduling Simulator by Hersita Chandak</h1>
           <div className="subtitle">Visualize scheduling algorithms and process metrics</div>
->>>>>>> Stashed changes
         </div>
         <div className="layout">
         <div className="left">
