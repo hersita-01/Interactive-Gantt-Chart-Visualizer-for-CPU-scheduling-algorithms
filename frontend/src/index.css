@@ -1,0 +1,50 @@
+:root {
+  --bg: #0f1720; /* deep neutral */
+  --card: #111316;
+  --muted: #9aa4b2;
+  --accent: #4f46e5;
+  --accent-2: #06b6d4;
+  --surface: #0b0d0f;
+  --text: #e6eef6;
+  --radius: 10px;
+
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: linear-gradient(180deg, var(--bg), #070809);
+  color: var(--text);
+  font-size: 16px;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: #7c6cff; }
+
+button {
+  background: linear-gradient(180deg, #0f1724, #0b1220);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:hover { filter: brightness(1.05); }
+
+input, select {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.04);
+  color: var(--text);
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  width: 100%;
+}
+
+@media (prefers-color-scheme: light) {
+  :root { --bg: #f5f7fb; --card: #ffffff; --text: #0b1220; --muted: #475569; }
+}
