@@ -7,13 +7,13 @@
 }
 
 :root {
-  --bg: #07101a;
-  --card: #0d1113;
+  --bg: #0b1420; /* deep navy */
+  --card: #0f1724; /* dark card background */
   --muted: #9aa4b2;
-  --accent: #7c6cff;
-  --accent-2: #06b6d4;
+  --accent: #6f4bff; /* primary purple */
+  --accent-2: #8b5cf6; /* lighter purple */
   --text: #e6eef6;
-  --radius: 12px;
+  --radius: 10px;
 }
 
 body {
@@ -36,6 +36,15 @@ input:focus, select:focus { box-shadow: 0 8px 20px rgba(124,108,255,0.06); borde
   display: flex;
   flex-direction: column;
   text-align: center; /* center top-level text */
+}
+
+/* Left sidebar look: darker, narrow, compact */
+.left .input-form.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  background-color: var(--card);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: none;
 }
 
 .header {
@@ -66,11 +75,32 @@ input:focus, select:focus { box-shadow: 0 8px 20px rgba(124,108,255,0.06); borde
 }
 
 .card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border-radius: var(--radius, 12px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+  border-radius: var(--radius, 10px);
   padding: 0.75rem;
-  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+  box-shadow: 0 6px 16px rgba(2,6,23,0.55);
 }
+
+/* Light card variant used for metrics area (white-ish) */
+.light-card {
+  /* switch metrics area to a darker card for screenshot parity */
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  color: var(--text);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.5);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.metric-summaries { display:flex; gap: 0.8rem; margin-bottom: 1rem; }
+.metric-box { flex:1; background: rgba(255,255,255,0.02); padding: 0.75rem; border-radius: 8px; text-align: center; border: 1px solid rgba(255,255,255,0.03); }
+.metric-label { color: var(--muted); font-size: 0.85rem; }
+.metric-value { font-size: 1.2rem; font-weight: 700; margin-top: 0.2rem; }
+
+.process-metrics-table { width: 100%; border-collapse: collapse; }
+.process-metrics-table thead th { text-align: left; padding: 0.75rem 0.5rem; color: #374151; }
+.process-metrics-table td { padding: 0.6rem 0.5rem; border-top: 1px solid rgba(15,23,40,0.04); }
+
+/* Make gantt bars rounded and softer color by default */
+.gantt-svg rect { rx: 8; ry: 8; }
 
 /* Keep content inside cards left-aligned for readability */
 .card * { text-align: left; }
@@ -78,8 +108,6 @@ input:focus, select:focus { box-shadow: 0 8px 20px rgba(124,108,255,0.06); borde
 .input-form h2, .right h2 { margin-top: 0; }
 
 /* Ensure Process Input heading and Algorithm heading match */
-.input-form h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; }
-.algorithm-heading { font-size: 1.35rem; font-weight: 700; margin-top: 1rem; margin-bottom: 0.5rem; text-align: left; }
 .input-form h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; text-align: center; }
 .algorithm-heading { font-size: 1.35rem; font-weight: 700; margin-top: 1rem; margin-bottom: 0.5rem; text-align: center; }
 
@@ -94,13 +122,14 @@ input:focus, select:focus { box-shadow: 0 8px 20px rgba(124,108,255,0.06); borde
 .controls { display:flex; gap:0.5rem; margin-top:0.5rem; }
 
 /* Algorithm block spacing and font consistency */
+
 .algorithm-panel { margin-top: 1rem; padding: 0.75rem; }
 .algorithm-panel h3 { margin: 0 0 0.5rem 0; font-size: 1rem; }
 .algorithm-options { display:flex; flex-direction:column; gap: 0.3rem; }
 .algorithm-options label { font-size: 1.05rem; }
 
-/* Algorithm heading sits outside the card */
-.algorithm-heading { font-size: 1rem; font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem; text-align: left; }
+/* Algorithm heading sits outside the card (centered); options left-aligned inside card */
+.algorithm-panel .algorithm-options { align-items: flex-start; }
 
 /* Ensure inputs and algorithm labels use same base font and spacing */
 input, select, .algorithm-options label { font-family: inherit; font-size: 0.95rem; }
@@ -152,7 +181,7 @@ input, select, .algorithm-options label { font-family: inherit; font-size: 0.95r
 /* Process list compact styles */
 .process-list { margin-top: 0.75rem; padding: 0.5rem; }
 .process-row { display:flex; justify-content:space-between; gap:0.5rem; padding:0.25rem 0; border-bottom: 1px dashed rgba(255,255,255,0.02); }
-.process-desc { font-size: 0.95rem; color: var(--text); }
+.process-desc { font-size: 0.9rem; color: var(--text); }
 .small { padding: 0.25rem 0.5rem; font-size: 0.85rem; border-radius:6px; }
 
 .quantum-row { margin-top: 0.5rem; }

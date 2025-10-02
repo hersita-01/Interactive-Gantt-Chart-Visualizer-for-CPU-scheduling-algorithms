@@ -49,7 +49,9 @@ const GanttChart = ({ ganttData }) => {
       .attr("width", d => Math.max(1, xScale(d.end) - xScale(d.start)))
       .attr("height", barHeight)
       .attr("fill", d => d.color || "#666")
-      .attr("stroke", "rgba(0,0,0,0.6)");
+      .attr("stroke", "rgba(0,0,0,0.06)")
+      .attr("rx", Math.max(4, Math.min(12, barHeight / 6)))
+      .attr("ry", Math.max(4, Math.min(12, barHeight / 6)));
 
     // labels
     svg
